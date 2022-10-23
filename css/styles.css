@@ -25,6 +25,7 @@ html {
   --overlay-color: rgba(47, 48, 58, 0.4);
   --background-hero-color: #c4c4c4;
   --icon-footer: rgba(255, 255, 255, 0.1);
+  --portfolio-overlay-color: rgba(33, 150, 243, 0.9);
 }
 
 body {
@@ -546,9 +547,11 @@ p {
   background-color: var(--white-color);
 }
 
-/* .project img {
-  width: 100%;
-} */
+.project-thumb {
+  position: relative;
+  overflow: hidden;
+  /* width: 100%; */
+}
 
 .project .link {
   display: block;
@@ -584,4 +587,30 @@ p {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.03em;
+}
+
+.project-overlay {
+  content: '';
+  display: inline-block;
+  width: 370px;
+  height: 294px;
+  background-color: var(--portfolio-overlay-color);
+  color: var(--white-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 250ms linear;
+
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+
+  padding: 63px 24px;
+}
+
+.project .link:hover .project-overlay {
+  transform: translateY(0);
+  opacity: 1;
 }
