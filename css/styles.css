@@ -28,6 +28,7 @@ html {
   --portfolio-overlay-color: rgba(33, 150, 243, 0.9);
   --background-work-color: rgba(47, 48, 58, 0.8);
   --background-modal-color: rgba(0, 0, 0, 0.2);
+  --time-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -80,15 +81,6 @@ p {
   margin: -1px;
 }
 
-.logo-header,
-.logo-footer {
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 1.19;
-  letter-spacing: 0.03em;
-}
-
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -131,6 +123,15 @@ p {
   color: var(--black-color);
 }
 
+.logo-header,
+.logo-footer {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.19;
+  letter-spacing: 0.03em;
+}
+
 .first-list .list-item:not(:first-child) {
   margin-left: 50px;
 }
@@ -141,7 +142,8 @@ p {
 
 .nav-item,
 .address-header {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--time-function);
+
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -152,24 +154,25 @@ p {
   color: var(--title-dark-color);
 }
 
-.address-header {
-  color: var(--text-dark-color);
+.address-header { 
   display: inline-flex;
   vertical-align: middle;
+
+  color: var(--text-dark-color);
 }
 
 .active,
+.span,
 .nav-item:hover,
 .nav-item:focus,
 .address-header:hover,
-.address-header:focus,
-.logo-header>span {
+.address-header:focus {
   color: var(--accent-color);
 }
 
 .envelope,
 .smartphone {
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms var(--time-function);
   margin-right: 10px;
   fill: var(--text-dark-color);
 }
@@ -225,7 +228,7 @@ p {
 }
 
 .hero-button {
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--time-function);
   border-radius: 4px;
   padding: 10px 32px;
   border: none;
@@ -387,7 +390,7 @@ p {
 }
 
 .card-link {
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--time-function);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -397,7 +400,7 @@ p {
 }
 
 .card-link .social {
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms var(--time-function);
   fill: var(--icon-color);
 }
 
@@ -431,7 +434,7 @@ p {
 }
 
 .client-link {
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms var(--time-function);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -442,7 +445,7 @@ p {
 }
 
 .client-logo {
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms var(--time-function);
   fill: var(--icon-color)
 }
 
@@ -474,7 +477,7 @@ p {
 
 .map-footer,
 .address-footer {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--time-function);
   font-style: normal;
   font-size: 14px;
   line-height: 1.71;
@@ -492,8 +495,7 @@ p {
 .map-footer:hover,
 .map-footer:focus,
 .address-footer:hover,
-.address-footer:focus,
-.logo-footer>span {
+.address-footer:focus {
   color: var(--accent-color);
 }
 
@@ -530,7 +532,7 @@ p {
 }
 
 .footer-link {
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--time-function);
 
   display: flex;
   justify-content: center;
@@ -563,9 +565,9 @@ p {
 }
 
 .portfolio-button {
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms var(--time-function),
+    color 250ms var(--time-function),
+    background-color 250ms var(--time-function);
 
   padding: 6px 22px;
   text-align: center;
@@ -609,7 +611,7 @@ p {
 
 .project .link {
   display: block;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms var(--time-function);
 }
 
 .project .link:hover,
@@ -649,7 +651,7 @@ p {
   top: 0;
   left: 0;
   transform: translateY(100%); 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);  
+  transition: transform 250ms var(--time-function);  
 
   padding: 63px 24px;
   width: 370px;
@@ -672,17 +674,27 @@ p {
   top: 0;
   left: 0;
 
+  opacity: 1;
+  transform: opacity 250ms var(--time-function);
+
   width: 100%;
   height: 100%;
 
   background-color: var(--background-modal-color);
 }
 
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .modal-window {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms var(--time-function);
 
   width: 528px;
   height: 581px;
@@ -695,10 +707,8 @@ p {
   background-color: var(--white-color);
 }
 
-.backdrop.is-hidden {
-  /* visibility: ; */
-  opacity: 0;
-  pointer-events: none;
+.backdrop.is-hidden .modal-window {
+  transform: translate(-50%, -50%) scale(0.7);  
 }
 
 .modal-close {
@@ -717,6 +727,6 @@ p {
   border-radius: 50%;
 }
 
-.close {  
+.close-button {  
   fill: var(--black-color)
 }
