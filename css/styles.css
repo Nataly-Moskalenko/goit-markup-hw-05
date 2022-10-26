@@ -154,7 +154,7 @@ p {
   color: var(--title-dark-color);
 }
 
-.address-header { 
+.address-header {
   display: inline-flex;
   vertical-align: middle;
 
@@ -306,17 +306,18 @@ p {
   position: absolute;
   bottom: 0;
 
-  padding-top: 27px;
-  padding-bottom: 27px;
-  width: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 70px;
 
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
-  text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+
   background-color: var(--background-work-color);
   color: var(--white-color);
 }
@@ -606,7 +607,7 @@ p {
 
 .project-thumb {
   position: relative;
-  overflow: hidden;  
+  overflow: hidden;
 }
 
 .project .link {
@@ -646,18 +647,20 @@ p {
   letter-spacing: 0.03em;
 }
 
-.project-overlay {   
+.project-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateY(100%); 
-  transition: transform 250ms var(--time-function);  
+  transform: translateY(100%);
+  transition: transform 250ms var(--time-function);
 
   padding: 63px 24px;
-  width: 370px;
-  height: 294px;
-
+  width: 100%;
+  /* height: 294px; */
   background-color: var(--portfolio-overlay-color);
+}
+
+.project-span {
   color: var(--white-color);
   font-size: 18px;
   line-height: 1.56;
@@ -665,7 +668,7 @@ p {
 }
 
 .project .link:hover .project-overlay {
-  transform: translateY(0);  
+  transform: translateY(0);
 }
 
 /* Модальне вікно */
@@ -698,17 +701,17 @@ p {
 
   width: 528px;
   height: 581px;
-  
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
-    0px 1px 1px rgba(0, 0, 0, 0.14), 
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  
+
   background-color: var(--white-color);
 }
 
 .backdrop.is-hidden .modal-window {
-  transform: translate(-50%, -50%) scale(0.7);  
+  transform: translate(-50%, -50%) scale(0.7);
 }
 
 .modal-close {
@@ -727,6 +730,6 @@ p {
   border-radius: 50%;
 }
 
-.close-button {  
+.close-button {
   fill: var(--black-color)
 }
